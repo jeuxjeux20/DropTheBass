@@ -1,0 +1,50 @@
+﻿<Window x:Class="DropTheBass.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DropTheBass"
+        mc:Ignorable="d"
+        Title="DropTheBass" Height="175" Width="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="13*"/>
+            <RowDefinition Height="35*"/>
+        </Grid.RowDefinitions>
+        <Viewbox>
+            <Label Content="DropTheBass" HorizontalAlignment="Center" FontSize="10" VerticalAlignment="Center"/>
+        </Viewbox>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="7*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Viewbox>
+                    <Label Content="Current file :" VerticalAlignment="Center"/>
+                </Viewbox>
+                <StackPanel Height="20" Orientation="Horizontal">
+                    <TextBox Width="150" Margin="0,0,1,0"/>
+                    <Button Content="Open file..."/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Row="1" HorizontalAlignment="Center" Margin="0,10,0,0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Horizontal" Grid.Column="0" Margin="0,0,25,0">
+                        <Label Content="Start (in seconds) :"/>
+                        <TextBox x:Name="StartMusic" Text="{Binding Player.Position, FallbackValue=0}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="30" Margin="0,5" TextChanged="TextBox_TextChanged"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Column="1">
+                        <Label Content="End (in seconds) :"/>
+                        <TextBox x:Name="EndMusic" Text="{Binding EndPosition, FallbackValue=0}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="30" Margin="0,5" TextChanged="TextBox_TextChanged"/>
+                    </StackPanel>
+                </Grid>
+                <Button Content="Drop da bass m8 !" Width="150" Margin="0,10,0,0"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
